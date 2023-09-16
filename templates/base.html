@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+		<title>
+			{% block title %}
+			Vesperr Bootstrap Template - Index
+			{% endblock title %}
+		</title>
+		<meta content="" name="description" />
+		<meta content="" name="keywords" />
+
+		<!-- Favicons -->
+		<link href="{% static 'img/favicon.png' %}" rel="icon" />
+		<link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon" />
+
+		<!-- Google Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+			rel="stylesheet" />
+
+		{% include "components/cssfiles.html" %}
+
+		{% block styles %} {% endblock styles %}
+	</head>
+
+	<body>
+		<!-- ======= Header ======= -->
+		<header id="header" class="fixed-top d-flex align-items-center">
+			<div class="container d-flex align-items-center justify-content-between">
+				<div class="logo">
+					<h1><a href="{% url 'mainapp:index' %}">Vesperr</a></h1>
+				</div>
+				{% include "components/navbar.html" %}
+			</div>
+		</header>
+
+		<!-- End Header -->
+
+		{% block hero %}
+
+		{% endblock hero %}
+
+		<div class="container">
+			<main id="main">{% block body %} {% endblock body %}</main>
+		</div>
+
+		{% block footer %} {% endblock footer %}
+
+		<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+				class="bi bi-arrow-up-short"></i></a>
+
+		{% include "components/jsfiles.html" %}
+	</body>
+
+</html>

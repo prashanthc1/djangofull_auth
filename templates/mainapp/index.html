@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block hero %}
+{% include "components/hero.html" %}
+{% endblock hero %}
+
+
+{% block body %}
+{% include "components/clients.html" %}
+{% include "components/about.html" %}
+{% include "components/counts.html" %}
+{% include "components/services.html" %}
+{% include "components/moreservices.html" %}
+{% include "components/features.html"%}
+{% include "components/testimonials.html" %}
+{% include "components/portfolio.html" %}
+{% include "components/team.html" %}
+{% include "components/pricing.html" %}
+{% include "components/faq.html" %}
+{% include "components/contact.html" %}
+{% endblock body %}
+
+
+{% block footer %}
+{% include "components/footer.html" %}
+{% endblock footer %}

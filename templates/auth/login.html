@@ -1,0 +1,73 @@
+{% extends "base.html" %} {% load static %} {% block styles %}
+<style>
+	.btn {
+		font-family: "Raleway", sans-serif;
+		font-weight: 500;
+		font-size: 16px;
+		letter-spacing: 1px;
+		display: inline-block;
+		padding: 10px 30px;
+		border-radius: 50px;
+		transition: 0.5s;
+		color: #3498db;
+		border: 2px solid #3498db;
+	}
+
+	.btn:hover {
+		background-color: #000;
+		color: #fff;
+	}
+</style>
+{% endblock styles %}
+{% block body %}
+<section id="contact" class="contact">
+	<div class="container">
+		<div class="section-title aos-init aos-animate">
+			<br />
+
+			<div class="row">
+				<div class="col-md-2"></div>
+
+				<div class="col-md-4 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+
+
+					{% for message in messages %}
+					<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+						<strong></strong>{{message}}
+						<button type="button" class="btn-close" data-bs-dismiss="alert" area-label="Close"></button>
+					</div>
+					{% endfor %}
+
+					<h1 data-aos="fade-up">Log In</h1>
+					<div class="container" data-aos="fade-up" data-aos-delay="400">
+						<form action="/accounts/login/" method="post">
+							{% csrf_token %}
+
+							<label for="email">Email</label>
+							<div class="form-group">
+								<input type="email" name="email" id="email" class="form-control" required autofocus
+									autocomplete="email" placeholder="john.doe@email.com" />
+							</div>
+							<br>
+							<label for="pass1">Password</label>
+							<div class="form-group">
+								<input type="password" name="pass1" id="pass1" class="form-control" required
+									autocomplete="current-password" placeholder="********" />
+							</div>
+
+							<br />
+							<button type="submit" class="btn">Log In</button>
+						</form>
+
+						<br />
+						<br />
+						Not Already User? <a href="{% url 'userapp:signup' %}">Sign Up</a>
+						<br />
+						Forgot Password? <a href="/">Reset</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock body %}
